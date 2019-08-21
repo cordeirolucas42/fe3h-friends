@@ -1,0 +1,29 @@
+<% include partials/header %>
+
+<% if(user.house=="Golden Deer"){ %>
+		<div class="container rounded bg-warning p-3">
+<% } else if(user.house=="Blue Lion"){ %>
+		<div class="container rounded bg-primary p-3">
+<% } else { %>
+		<div class="container rounded bg-dark p-3">
+<% } %>
+	
+<h1 class="display-4">
+	Fire Emblem: Three Houses
+</h1>
+	
+<p class="lead">
+	Hello, <%= user.username %>, wellcome back!
+</p>
+<p class="lead">
+	Greetings from house <%= user.house %>!
+</p>
+			
+<p class="lead">
+	Go to your <a href= <%= "https://webdev42.run.goorm.io/" + user.username + "/friends" %> class="text-info">Friends List</a> to manage your friends in the game!
+</p>
+
+
+</div>
+
+<% include partials/footer %>

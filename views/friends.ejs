@@ -1,0 +1,46 @@
+<% include partials/header %>
+
+<% if(user.house=="Golden Deer"){ %>
+		<div class="container rounded bg-warning p-3">
+<% } else if(user.house=="Blue Lion"){ %>
+		<div class="container rounded bg-primary p-3">
+<% } else { %>
+		<div class="container rounded bg-dark p-3">
+<% } %>
+	
+	<h1 class="display-4">
+		Fire Emblem: Three Houses
+	</h1>
+
+	<p class="lead">
+		<%= user.username %>' Friends List:
+		</p>
+
+	<div class="rounded">
+	<ul class="list-group list-group-flush">
+		<% user.friends.forEach(function(friend){ %>
+			<form class="list-group-item" action= <%= "/" + user.username + "/removeFriend/" + user.friend %> method="POST">
+				<button class="btn btn-outline-secondary btn-sm mr-2" type="submit">
+					<i class="fas fa-trash"></i>
+				</button>
+				<%= friend %>
+			</form>
+		<% }) %>
+	</ul>
+	</div>
+
+	<form action="/addFriend" method="POST">
+		<div class="input-group mt-3">	
+			<input type="text" name="newFriend" placeholder="New Friend" class="form-control" autofocus>
+			<button type="submit" class="btn btn-info input-group-append">
+				New Friend!
+			</button>	
+		</div>
+	</form>
+	<div class="mt-3">
+	  <button type="button" class="btn btn-secondary rounded"><a class="text-light" href="https://webdev42.run.goorm.io/">Home Page</a></button>
+	  <button type="button" class="btn btn-secondary rounded"><a class="text-light" href= <%= "https://webdev42.run.goorm.io/" + user.username %>>User Start Page</a></button>
+	</div>
+</div>
+
+<% include partials/footer %>

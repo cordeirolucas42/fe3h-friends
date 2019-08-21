@@ -1,0 +1,31 @@
+<% include partials/header %>
+<div class="container rounded bg-success px-3 py-2">	
+
+	<h1 class="display-4 text-center">
+		Wellcome to Friend Manager!
+	</h1>
+
+	<p class="lead">
+		Type you name and house bellow to start managing you friends
+	</p>
+	<form action="/signUp" method="POST">
+		<div class="input-group">	
+			<input type="text" name="username" placeholder="Username" class="form-control" autofocus>
+			<input type="text" name="house" placeholder="House" class="form-control">
+			<button type="submit" class="btn btn-info input-group-append">
+				Sign Up!
+			</button>	
+		</div>
+	</form>
+	
+	<div class="m-3">
+		<ul class="list-group list-group-flush">
+			<% users.forEach(function(user){ %>
+			<a class="text-dark list-group-item" href= <%= "https://webdev42.run.goorm.io/"+ user.username %> ><%= user.username %></a>
+			<% }) %>
+		</ul>
+	</div>
+	
+</div>
+
+<% include partials/footer %>
