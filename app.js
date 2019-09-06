@@ -1,5 +1,12 @@
+//DATABASE INITIALIZATION
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/FE_Friends",{ useNewUrlParser: true });
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+// heroku config:get MONGODB_URI
+var uri = 'mongodb://heroku_kwqtcvpl:6vc6v5m55i5v41jb0tj5hejgvl@ds211368.mlab.com:11368/heroku_kwqtcvpl';
+mongoose.connect(uri);
+
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
