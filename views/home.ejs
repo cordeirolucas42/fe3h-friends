@@ -4,30 +4,35 @@
 	<h1 class="display-4 text-center">
 		Wellcome to Friends Manager!
 	</h1>
-
-	<p class="lead">
-		Type you name and house bellow to start managing you friends
-	</p>
-	<form action="/signup" method="POST">
-		<div class="input-group">	
-			<input type="text" name="user[username]" placeholder="Username" class="form-control" autofocus>
-			<input type="password" name="user[password]" placeholder="Password" class="form-control" autofocus>
-			<input type="text" name="user[house]" placeholder="House" class="form-control">
-			<button type="submit" class="btn btn-primary input-group-append">
-				Sign Up!
-			</button>	
+	<div class="row py-3">
+		<div class="col-3 mx-5">
+			<form action="/signup" method="POST">
+				<div class="form-group">
+					<p class="lead">Sing Up Form</p>
+					<input type="text" name="user[username]" placeholder="Username" class="my-2 form-control" autofocus>
+					<input type="password" name="user[password]" placeholder="Password" class="my-2 form-control" autofocus>
+					<input type="text" name="user[house]" placeholder="House" class="my-2 form-control">
+					<button type="submit" class="my-2 btn btn-primary input-group-append">
+						Sign Up!
+					</button>
+				</div>					
+			</form>
 		</div>
-	</form>
-	<form class="pt-3" action="/login" method="POST">
-		<div class="input-group">	
-			<input type="text" name="username" placeholder="Username" class="form-control" autofocus>
-			<input type="password" name="password" placeholder="Password" class="form-control" autofocus>
-			<button type="submit" class="btn btn-primary input-group-append">
-				Log In!
-			</button>	
+		<div class="col-3 mx-5">					
+					<form class="pt-3" action="/login" method="POST">
+						<div class="form-group">
+							<p class="lead">Log In Form</p>
+							<input type="text" name="username" placeholder="Username" class="my-2 form-control" autofocus>
+							<input type="password" name="password" placeholder="Password" class="my-2 form-control" autofocus>
+							<button type="submit" class="my-2 btn btn-primary input-group-append">
+								Log In!
+							</button>
+						</div>
+					</form>		
 		</div>
-	</form>
+	</div>
 	
+	<p class="lead">Users list (for debugging)</p>
 	<div class="m-3">
 		<ul class="list-group list-group-flush">
 			<% users.forEach(function(user){ %>
