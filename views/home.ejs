@@ -2,18 +2,28 @@
 <div class="container rounded bg-success px-3 py-2">	
 
 	<h1 class="display-4 text-center">
-		Wellcome to Friend Manager!
+		Wellcome to Friends Manager!
 	</h1>
 
 	<p class="lead">
 		Type you name and house bellow to start managing you friends
 	</p>
-	<form action="/signUp" method="POST">
+	<form action="/signup" method="POST">
+		<div class="input-group">	
+			<input type="text" name="user[username]" placeholder="Username" class="form-control" autofocus>
+			<input type="password" name="user[password]" placeholder="Password" class="form-control" autofocus>
+			<input type="text" name="user[house]" placeholder="House" class="form-control">
+			<button type="submit" class="btn btn-primary input-group-append">
+				Sign Up!
+			</button>	
+		</div>
+	</form>
+	<form class="pt-3" action="/login" method="POST">
 		<div class="input-group">	
 			<input type="text" name="username" placeholder="Username" class="form-control" autofocus>
-			<input type="text" name="house" placeholder="House" class="form-control">
-			<button type="submit" class="btn btn-info input-group-append">
-				Sign Up!
+			<input type="password" name="password" placeholder="Password" class="form-control" autofocus>
+			<button type="submit" class="btn btn-primary input-group-append">
+				Log In!
 			</button>	
 		</div>
 	</form>
@@ -21,10 +31,12 @@
 	<div class="m-3">
 		<ul class="list-group list-group-flush">
 			<% users.forEach(function(user){ %>
-			<a class="text-dark list-group-item" href= <%= "https://webdev42.run.goorm.io/"+ user.username %> ><%= user.username %></a>
+			<a class="text-dark list-group-item" href= "/<%=user._id %>"" ><%= user.username %></a>
 			<% }) %>
 		</ul>
 	</div>
+	<a class="btn btn-primary" href="/logout">Log Out</a>
+	<a class="btn btn-primary" href="/user">User Page</a>
 	
 </div>
 
